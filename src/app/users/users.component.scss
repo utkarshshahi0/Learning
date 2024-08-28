@@ -1,0 +1,24 @@
+/* app-task.component.scss */
+.button-custom {
+    background-color: #538a14;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.button-custom:hover {
+    background-color: #0056b3;
+}
+
+.button-custom:active {
+    background-color: #004085;
+    transform: scale(0.95);
+}
+
+.button-custom.active {
+    background-color: #28a745; /* Active state background color */
+    color: white; /* Active state text color */
+}

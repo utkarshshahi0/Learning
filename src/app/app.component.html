@@ -1,0 +1,65 @@
+<router-outlet></router-outlet>
+
+<div class="container">
+<div class="row">
+<div class="col">
+    <div class="row">
+        <div class="col-3"> 
+            <ng-container *ngFor="let user of selectedUser">
+                <app-users [name]="user.name" [selected]="user.id == selectedId" [id]="user.id" (select)="onSelectId($event)" ></app-users>
+            </ng-container>
+        </div>
+        <div class="col-9">
+            <app-app-task [name]="selectedUsers.name" [id]="selectedUsers.id" #heading></app-app-task>
+        </div>
+    </div>
+
+<h1>----Radio Button Work</h1>
+
+    <div>
+        <label for="">Show A</label>
+        <input type="radio" name="toggle" value="A" [(ngModel)]="selectedOption">
+    </div>
+    
+    <div>
+        <label for="">Show B</label>
+        <input type="radio" name="toggle" value="B" [(ngModel)]="selectedOption">
+    </div>
+    
+    
+    <div *ngIf="selectedOption == 'A'">
+        <h1>Show A</h1>
+    </div>
+    
+    <div *ngIf="selectedOption == 'B'">
+        <h1>Show B</h1>
+    </div>
+
+</div>
+
+</div> 
+</div>
+
+
+
+<div>
+    <app-crud></app-crud>
+</div>
+
+<div>
+    NEW Topic Working With @ViewChild
+    <div class="alert alert-secondary" role="alert" style="padding: 30px;margin: 40px;">
+        <h3 #childheading>Child Component</h3>
+        <h3 #childheading>Child Component</h3>
+        <h3 #childheading>Child Component Three</h3>
+    </div>
+</div>
+
+
+<app-counter #childCom></app-counter>
+
+<div>
+    <h4>Counter: {{child?.counter}}</h4>
+    <button (click)="dec()">Decrement</button>
+    <button (click)="inc()">Increment</button>
+</div>

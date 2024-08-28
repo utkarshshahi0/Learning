@@ -1,0 +1,12 @@
+<div class="container">
+    <div>
+        <div *ngFor="let task of tasks">
+            <h2>{{task.title}}</h2>
+            <time datetime="">{{task.time}}</time>
+            <p>{{task.summary}}</p>
+            <div class="d-flex justify-content-end">
+                <button class="btn button-custom" (click)="onCompleteTask()">Continue</button>
+            </div>
+        </div>
+    </div>
+</div>

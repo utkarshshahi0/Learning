@@ -1,0 +1,20 @@
+
+
+.button-custom{
+    background-color: #538a14;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;  
+}
+
+.btn-custom:hover {
+    background-color: #0056b3;
+  }
+  
+  .btn-custom:active {
+    background-color: #004085;
+    transform: scale(0.95);
+  }

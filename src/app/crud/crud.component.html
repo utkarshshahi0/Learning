@@ -1,0 +1,95 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <form [formGroup]="formGroup">
+        <div>
+          <label for="">Name</label>
+          <input type="text" formControlName="name" placeholder="name">
+        </div>
+        <div>
+          <label for="">Age</label>
+          <input type="text" formControlName="age" placeholder="age">
+        </div>
+        <div>
+          <label for="">Address</label>
+          <input type="text" formControlName="address" placeholder="address">
+        </div>
+
+        <div formArrayName="items">
+          <div *ngFor="let item of items.controls;let i=index" [formGroupName]="i">
+            <label>Item {{ i + 1 }}:</label>
+            <label for="">English</label>
+
+            <input formControlName="english" placeholder="English">
+            <label for="">Hindi</label>
+            <input formControlName="hindi" placeholder="Hindi">
+
+          </div>
+        </div>
+        <button (click)="addItem()"> Add Item</button>
+        <button (click)="onSubmit()" [disabled]="formGroup.invalid"> Submit</button>
+
+      </form>
+
+
+      <div>
+        <table>
+          <tr>
+            <th> Name</th>
+            <th> Age</th>
+            <th> Address</th>
+            <th> Items</th>
+          </tr>
+          <tr  >
+            <td> {{formValue.name}}</td>
+            <td> {{formValue.age}}</td>
+            <td> {{formValue.address}}</td>
+            <td>
+              <ul>
+                <li *ngFor="let item of formValue.items">
+                  English: {{ item.english }}, Hindi: {{ item.hindi }}
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+        <div>
+          <label for="name">Name</label>
+          <input id="name" type="text" formControlName="name" placeholder="Name">
+        </div>
+        <div>
+          <label for="age">Age</label>
+          <input id="age" type="text" formControlName="age" placeholder="Age">
+        </div>
+        <div>
+          <label for="address">Address</label>
+          <input id="address" type="text" formControlName="address" placeholder="Address">
+        </div>
+  
+        <div formArrayName="items">
+          <div *ngFor="let item of items.controls; let i = index" [formGroupName]="i">
+            <label>Item {{ i + 1 }}:</label>
+            <div>
+              <label for="english-{{i}}">English</label>
+              <input id="english-{{i}}" formControlName="english" placeholder="English">
+            </div>
+            <div>
+              <label for="hindi-{{i}}">Hindi</label>
+              <input id="hindi-{{i}}" formControlName="hindi" placeholder="Hindi">
+            </div>
+          </div>
+        </div>
+        <button type="button" (click)="addItem()">Add Item</button>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div> -->
